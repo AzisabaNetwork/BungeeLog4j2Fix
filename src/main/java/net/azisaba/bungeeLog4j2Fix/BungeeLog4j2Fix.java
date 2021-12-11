@@ -6,7 +6,7 @@ import net.md_5.bungee.api.plugin.Plugin;
 public class BungeeLog4j2Fix extends Plugin {
     @Override
     public void onLoad() {
-        String replace = ".replaceAll(\"\\\\$\\\\{(.*?):(.*?)}\", \"$2\").replaceAll(\"(?i)jndi:ldap\", \"\")";
+        String replace = ".replaceAll(\"\\\\$\\\\{(.*?):?(.*?)}.*\", \"\").replaceAll(\"(?i)jndi:ldap.*\", \"\")";
         Util.redefineClass("net.md_5.bungee.protocol.packet.Kick", cc -> {
             cc.getMethod("read", "(Lio/netty/buffer/ByteBuf;)V")
                     .insertAfter("{ if (message != null) { message = message" + replace + "; } }");
