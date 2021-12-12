@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    implementation("net.blueberrymc:native-util:1.2.5")
+    implementation("net.blueberrymc:native-util:1.2.6")
     implementation("org.javassist:javassist:3.28.0-GA")
     compileOnly("net.md-5:bungeecord-api:1.18-R0.1-SNAPSHOT")
 }
